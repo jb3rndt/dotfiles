@@ -63,4 +63,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias refresh="source ~/.zshrc"
+
+chmod +x $DOTFILES_DIR/keybinds.zsh
+source $DOTFILES_DIR/keybinds.zsh
