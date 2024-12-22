@@ -12,8 +12,8 @@
 # for context, at the time of writing these variables are
 #   set for the kitty terminal program, i.e these signals
 #   are mostly ones sent by default by this terminal.
-export KEY_DEL='^?'
-export KEY_FN_DEL='^[3;5~'
+export KEY_DELETE='^[[3~'
+export KEY_BACKSPACE='^?'
 export KEY_ALT_F='^ƒ'
 export KEY_ALT_B='^∫'
 export KEY_ALT_D='^∂'
@@ -27,8 +27,8 @@ export KEY_CMD_X=$'^[[120;9u'
 export KEY_CMD_V=$'^[[118;9u'
 export KEY_CMD_A=$'^[[97;9u'
 export KEY_CTRL_L=$'\x0c' # ^L
-export KEY_LEFT=${terminfo[kcub1]:-$'^[[D'}
-export KEY_RIGHT=${terminfo[kcuf1]:-$'^[[C'}
+export KEY_LEFT=$'^[[D'
+export KEY_RIGHT=$'^[[C'
 export KEY_SHIFT_UP=${terminfo[kri]:-$'^[[1;2A'}
 export KEY_SHIFT_DOWN=${terminfo[kind]:-$'^[[1;2B'}
 export KEY_SHIFT_RIGHT=${terminfo[kRIT]:-$'^[[1;2C'}
@@ -109,6 +109,15 @@ function widget::util-unselect() {
     zle $widget_name -- $@
 }
 
+function widget::util-unselectall() {
+    if (( REGION_ACTIVE )) then
+        zle deactivate-region -w
+    else
+        local widget_name=$1
+        zle $widget_name -- $@
+    fi
+}
+
 function widget::util-delselect() {
     if ((REGION_ACTIVE)) then
         zle kill-region
@@ -144,8 +153,8 @@ bindkey                   $KEY_CTRL_L                       widget::scroll-and-c
 
 for keyname        kcap   seq                   mode        widget (
 
-    left           kcub1  $KEY_LEFT             unselect    backward-char
-    right          kcuf1  $KEY_RIGHT            unselect    forward-char
+    left           kcub1  $KEY_LEFT             unselectall    backward-char
+    right          kcuf1  $KEY_RIGHT            unselectall    forward-char
 
     shift-up       kri    $KEY_SHIFT_UP         select      up-line-or-history
     shift-down     kind   $KEY_SHIFT_DOWN       select      down-line-or-history
@@ -170,6 +179,8 @@ for keyname        kcap   seq                   mode        widget (
     shift-ctrl-left   x   $KEY_SHIFT_CTRL_LEFT  select      beginning-of-line
 
     del               x   $KEY_CTRL_D           delselect   delete-char
+    del               x   $KEY_DELETE           delselect   delete-char
+    backspace         x   $KEY_BACKSPACE        delselect   backward-delete-char
 
     a                 x       'a'               insertchar  'a'
     b                 x       'b'               insertchar  'b'
