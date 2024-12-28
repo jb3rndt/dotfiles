@@ -1,3 +1,10 @@
+DOTFILES_DIR="$HOME/.dotfiles"
+export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -11,14 +18,10 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Move Cursor bindings
-bindkey "[C" forward-word
-bindkey "[D" backward-word
-
-PATH="$PATH:/Users/jberndt/.npm-global/bin/:/opt/homebrew/opt/libpq/bin:/Users/jberndt/Library/Python/3.11/bin"
-PATH="$PATH:/Users/jberndt/.local/bin"
-PATH="$PATH:/Users/jberndt/Development/flutter/bin"
-PATH="$PATH:/Users/jberndt/.pub-cache/bin"
+PATH="$PATH:$HOME/.npm-global/bin/:/opt/homebrew/opt/libpq/bin:$HOME/Library/Python/3.11/bin"
+PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:$HOME/Development/flutter/bin"
+PATH="$PATH:$HOME/.pub-cache/bin"
 
 export GRAALVM_HOME="/Library/Java/JavaVirtualMachines/graalvm-jdk-21.0.3+7.1/Contents/Home"
 export GRAALVM23_HOME="/Library/Java/JavaVirtualMachines/graalvm-jdk-23.0.1+11.1/Contents/Home"
@@ -30,7 +33,7 @@ export JAVA_HOME=$GRAALVM23_HOME
 PATH="$PATH:$JAVA_HOME/bin"
 PATH="$PATH:/opt/apache-maven-3.9.6/bin"
 
-PATH="$PATH:/Users/jberndt/Development/mx"
+PATH="$PATH:$HOME/Development/mx"
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -42,11 +45,6 @@ export GRAALPY_HOME="$HOME/Documents/SWD24/venv"
 # Bat (better cat) (https://github.com/sharkdp/bat)
 
 export BAT_THEME="TwoDark"
-alias cat="bat"
-
-# Eza (better ls)
-
-alias ls="eza --color=always --icons=always --long --git --no-filesize --no-time --no-user --no-permissions"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -63,6 +61,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+chmod +x $DOTFILES_DIR/aliases.zsh
+source $DOTFILES_DIR/aliases.zsh
 
 chmod +x $DOTFILES_DIR/keybinds.zsh
 source $DOTFILES_DIR/keybinds.zsh
