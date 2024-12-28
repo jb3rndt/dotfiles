@@ -1,3 +1,5 @@
+# Based on https://stackoverflow.com/questions/5407916/zsh-zle-shift-selection
+
 # for my own convenience I explicitly set the signals
 #   that my terminal sends to the shell as variables.
 #   you might have different signals. you can see what
