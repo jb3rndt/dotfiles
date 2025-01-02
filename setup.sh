@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Check if git is configured globally
 if ! git config --global user.name >/dev/null; then
@@ -20,6 +20,5 @@ else
 fi
 
 echo "Running run.sh..."
+
 cd "$HOME/dotfiles" && ./run.sh
-echo "Reloading the shell..."
-source ~/.zshrc

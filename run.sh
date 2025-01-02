@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # https://www.webpro.nl/articles/getting-started-with-dotfiles
 
@@ -24,4 +24,8 @@ brew update
 brew bundle --file $HOME/dotfiles/Brewfile
 brew upgrade
 
+printf "\e[32m✔ Brewfile installed\e[0m\n"
+
 source ~/.zshrc
+
+printf "\e[32m✔ Shell reloaded\e[0m\n"
