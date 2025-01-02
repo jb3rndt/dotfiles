@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Based on https://stackoverflow.com/questions/5407916/zsh-zle-shift-selection
 
 # for my own convenience I explicitly set the signals

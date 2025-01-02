@@ -1,4 +1,4 @@
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="$HOME/dotfiles"
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -61,8 +61,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-chmod +x $DOTFILES_DIR/aliases.zsh
 source $DOTFILES_DIR/aliases.zsh
 
-chmod +x $DOTFILES_DIR/keybinds.zsh
 source $DOTFILES_DIR/keybinds.zsh
