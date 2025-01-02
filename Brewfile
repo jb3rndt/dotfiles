@@ -19,6 +19,7 @@ cask 'gimp'
 cask 'bitwarden'
 cask 'whatsapp'
 cask 'telegram'
+cask 'obsidian'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
