@@ -29,3 +29,7 @@ printf "\e[32m✔ Brewfile installed\e[0m\n"
 source ~/.zshrc
 
 printf "\e[32m✔ Shell reloaded\e[0m\n"
+
+# Symlink preferences files
+rm -rf $HOME/Library/Preferences/com.googlecode.iterm2.plist
+ln -sw $HOME/dotfiles/com.googlecode.iterm2.plist $HOME/Library/Preferences/com.googlecode.iterm2.plist
