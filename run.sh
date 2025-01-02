@@ -33,11 +33,12 @@ source ~/.zshrc
 printf "\e[32m✔ Shell reloaded\e[0m\n"
 
 # Copy preferences files and back up existing ones
-mkdir -p $DOTFILES_DIR/backup_preferences
+BACKUP_DIR="$DOTFILES_DIR/backup_preferences/$(date +%Y%m%d%H%M%S)"
+mkdir -p $BACKUP_DIR
 for file in $DOTFILES_DIR/preferences/*; do
   filename=$(basename "$file")
   if [ -e "$HOME/Library/Preferences/$filename" ]; then
-    cp "$HOME/Library/Preferences/$filename" "$DOTFILES_DIR/backup_preferences/"
+    cp "$HOME/Library/Preferences/$filename" "$BACKUP_DIR"
     rm "$HOME/Library/Preferences/$filename"
   fi
   cp "$file" "$HOME/Library/Preferences/"
