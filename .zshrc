@@ -20,6 +20,7 @@ fi
 
 PATH="$PATH:$HOME/.npm-global/bin/:/opt/homebrew/opt/libpq/bin:$HOME/Library/Python/3.11/bin"
 PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:/opt/homebrew/bin"
 PATH="$PATH:$HOME/Development/flutter/bin"
 PATH="$PATH:$HOME/.pub-cache/bin"
 
