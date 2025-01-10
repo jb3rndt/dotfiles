@@ -16,7 +16,7 @@ printf "\e[32m✔ Oh my zsh installed\e[0m\n"
 rm -rf $HOME/.zshrc
 ln -sw $DOTFILES_DIR/.zshrc $HOME/.zshrc
 
-if [ ! -f "$DOTFILES_DIR/.zshenv" ]; then
+if [ ! -f "$DOTFILES_DIR/local.zshenv" ]; then
   cp "$DOTFILES_DIR/templates/.zshenv" "$DOTFILES_DIR/local.zshenv"
 fi
 
