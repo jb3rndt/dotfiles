@@ -2,6 +2,7 @@ brew 'bat'
 brew 'ffmpeg'
 brew 'eza'
 brew 'maven'
+brew 'pyenv'
 
 # Apps
 cask 'unnaturalscrollwheels'
