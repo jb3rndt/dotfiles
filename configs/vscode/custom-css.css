@@ -1,0 +1,16 @@
+/* To inspect the classes use https://vscode.dev/github/microsoft/vscode */
+
+.tab > .tab-border-top-container {
+  height: 0px !important;
+}
+
+.tab {
+  border: none !important;
+  padding: 0px 4px;
+  border-radius: 8px !important;
+}
+
+.tabs-container {
+  padding: 4px;
+  gap: 4px;
+}
