@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Based on https://stackoverflow.com/questions/5407916/zsh-zle-shift-selection
 
