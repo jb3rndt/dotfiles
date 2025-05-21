@@ -3,6 +3,7 @@ brew 'ffmpeg'
 brew 'eza'
 brew 'maven'
 brew 'pyenv'
+brew 'git-lfs'
 
 # Apps
 cask 'unnaturalscrollwheels'
