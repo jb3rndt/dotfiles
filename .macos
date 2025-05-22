@@ -123,7 +123,11 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 
 # Disable mouse acceleration
-defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
+defaults write NSGlobalDomain com.apple.mouse.linear -bool true
+
+# Set cursor speed
+# defaults write com.apple.mouse.scaling -float 1.5
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 1.5
 
 # Use standard features of function keys
 defaults write NSGlobalDomain com.apple.keyboard.fnState -boolean true
