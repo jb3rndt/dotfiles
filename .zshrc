@@ -20,7 +20,9 @@ fi
 
 [[ ! -f $DOTFILES_DIR/local.zshenv ]] || source $DOTFILES_DIR/local.zshenv
 
-PATH="$PATH:$HOME/.npm-global/bin/:/opt/homebrew/opt/libpq/bin"
+PATH="$PATH:/opt/homebrew/bin"
+PATH="$PATH:/opt/homebrew/opt/libpq/bin"
+PATH="$PATH:$HOME/.npm-global/bin/"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/Development/flutter/bin"
 PATH="$PATH:$HOME/.pub-cache/bin"
