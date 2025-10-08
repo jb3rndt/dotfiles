@@ -4,6 +4,7 @@ brew 'eza'
 brew 'maven'
 brew 'pyenv'
 brew 'git-lfs'
+brew 'tmux'
 
 # Apps
 cask 'unnaturalscrollwheels'
