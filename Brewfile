@@ -5,12 +5,13 @@ brew 'maven'
 brew 'pyenv'
 brew 'git-lfs'
 brew 'tmux'
+brew 'docker'
 
 # Apps
 cask 'unnaturalscrollwheels'
 cask 'spotify'
 cask 'discord'
-cask 'docker'
+cask 'docker-desktop'
 cask 'figma'
 cask 'firefox'
 cask 'google-chrome'
@@ -25,6 +26,7 @@ cask 'whatsapp'
 cask 'telegram'
 cask 'obsidian'
 cask 'chatgpt'
+cask 'zen'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
