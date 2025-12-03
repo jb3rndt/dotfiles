@@ -181,7 +181,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
-#launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 ###############################################################################
 # Energy saving                                                               #
@@ -570,6 +570,48 @@ defaults write com.apple.dock show-recents -bool false
 
 # Install Sublime Text settings
 # cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+
+###############################################################################
+# Hotkeys                                                                     #
+###############################################################################
+
+# Keys mapping: https://github.com/andyjakubowski/dotfiles/blob/main/AppleSymbolicHotKeys%20Mappings
+
+# Save picture of screen as a file -> CTRL+SHIFT+CMD+3
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 28 "{
+  enabled = 1;
+  value = {
+    type = standard;
+    parameters = (51, 20, 1441792);
+  };
+}"
+
+# Copy picture of screen to the clipboard -> SHIFT+CMD+3
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 29 "{
+  enabled = 1;
+  value = {
+    type = standard;
+    parameters = (51, 20, 1179648);
+  };
+}"
+
+# Save picture of selected area as a file -> CTRL+SHIFT+CMD+4
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 30 "{
+  enabled = 1;
+  value = {
+    type = standard;
+    parameters = (52, 21, 1441792);
+  };
+}"
+
+# Save picture of selected area to the clipboard -> SHIFT+CMD+4
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 31 "{
+  enabled = 1;
+  value = {
+    type = standard;
+    parameters = (52, 21, 1179648);
+  };
+}"
 
 for app in "Dock" \
     "Finder" \
