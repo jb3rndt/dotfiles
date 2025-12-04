@@ -181,7 +181,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 ###############################################################################
 # Energy saving                                                               #
@@ -578,40 +578,82 @@ defaults write com.apple.dock show-recents -bool false
 # Keys mapping: https://github.com/andyjakubowski/dotfiles/blob/main/AppleSymbolicHotKeys%20Mappings
 
 # Save picture of screen as a file -> CTRL+SHIFT+CMD+3
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 28 "{
-  enabled = 1;
-  value = {
-    type = standard;
-    parameters = (51, 20, 1441792);
-  };
-}"
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 28 "
+  <dict>
+    <key>enabled</key>
+    <true/>
+    <key>value</key>
+    <dict>
+      <key>parameters</key>
+      <array>
+        <integer>51</integer>
+        <integer>20</integer>
+        <integer>1441792</integer>
+      </array>
+      <key>type</key>
+      <string>standard</string>
+    </dict>
+  </dict>
+"
 
 # Copy picture of screen to the clipboard -> SHIFT+CMD+3
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 29 "{
-  enabled = 1;
-  value = {
-    type = standard;
-    parameters = (51, 20, 1179648);
-  };
-}"
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 29 "
+  <dict>
+    <key>enabled</key>
+    <true/>
+    <key>value</key>
+    <dict>
+      <key>parameters</key>
+      <array>
+        <integer>51</integer>
+        <integer>20</integer>
+        <integer>1179648</integer>
+      </array>
+      <key>type</key>
+      <string>standard</string>
+    </dict>
+  </dict>
+"
 
 # Save picture of selected area as a file -> CTRL+SHIFT+CMD+4
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 30 "{
-  enabled = 1;
-  value = {
-    type = standard;
-    parameters = (52, 21, 1441792);
-  };
-}"
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 30 "
+  <dict>
+    <key>enabled</key>
+    <true/>
+    <key>value</key>
+    <dict>
+      <key>parameters</key>
+      <array>
+        <integer>52</integer>
+        <integer>21</integer>
+        <integer>1441792</integer>
+      </array>
+      <key>type</key>
+      <string>standard</string>
+    </dict>
+  </dict>
+"
 
 # Save picture of selected area to the clipboard -> SHIFT+CMD+4
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 31 "{
-  enabled = 1;
-  value = {
-    type = standard;
-    parameters = (52, 21, 1179648);
-  };
-}"
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 31 "
+  <dict>
+    <key>enabled</key>
+    <true/>
+    <key>value</key>
+    <dict>
+      <key>parameters</key>
+      <array>
+        <integer>52</integer>
+        <integer>21</integer>
+        <integer>1179648</integer>
+      </array>
+      <key>type</key>
+      <string>standard</string>
+    </dict>
+  </dict>
+"
+
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 for app in "Dock" \
     "Finder" \
