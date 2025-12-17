@@ -7,6 +7,7 @@ brew 'git-lfs'
 brew 'tmux'
 brew 'docker'
 brew 'tmuxp'
+brew 'lazygit'
 
 # Apps
 cask 'unnaturalscrollwheels'
