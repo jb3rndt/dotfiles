@@ -5,4 +5,5 @@ alias ls="eza --color=always --icons=always --long --git --no-filesize --no-time
 alias refresh="source ~/.zshrc"
 alias reload="source ~/.zshrc"
 alias update-dotfiles="zsh $DOTFILES_DIR/update.sh"
-alias search="cat ~/.zshrc_history | grep"
+alias search="cat ~/.zsh_history | grep"
+alias y="yarn"
