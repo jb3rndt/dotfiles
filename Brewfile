@@ -29,6 +29,7 @@ cask 'telegram'
 cask 'obsidian'
 cask 'chatgpt'
 cask 'zen'
+cask 'karabiner-elements'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
