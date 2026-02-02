@@ -3,3 +3,4 @@
 
 [core]
     ignorecase = false
+    hooksPath = $DOTFILES_DIR/configs/git-hooks
