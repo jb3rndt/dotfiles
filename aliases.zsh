@@ -13,8 +13,18 @@ alias cc="claude --allowed-tools=Edit"
 # Automatically finds the workspace name from package.json
 _yw() {
     local cmd=$1
-    local pkg=$2
-    local args=("${(@)argv[3,-1]}")
+    local pkg=""
+    local args=()
+
+    # Check if second argument is a package name or a flag
+    if [[ -n "$2" && ! "$2" =~ ^- ]]; then
+        # Second argument doesn't start with '-', treat it as package name
+        pkg=$2
+        args=("${(@)argv[3,-1]}")
+    else
+        # Second argument starts with '-' or doesn't exist, treat all remaining args as flags
+        args=("${(@)argv[2,-1]}")
+    fi
 
     if [[ -z "$pkg" ]]; then
         # If no package specified, run in current directory
