@@ -13,7 +13,7 @@ if [[ "$1" == "0000000000000000000000000000000000000000" ]]; then
 	main_worktree=$(git worktree list | head -n 1 | awk '{print $1}')
 
 	# Copy .env.* and *.keystore files (preserving directory structure)
-	find "$main_worktree" \( -name ".env*" -o -name "*.keystore" \) -type f -print0 | while IFS= read -r -d '' file; do
+	find "$main_worktree" \( -path "*/node_modules/*" -o -path "*/dist/*" -o -path "*/.yarn/*" -o -path "*/.build/*" \) -prune -o \( -name ".env*" -o -name "*.keystore" \) -type f -print0 | while IFS= read -r -d '' file; do
 		rel_path="${file#$main_worktree/}"
 		mkdir -p "$repo_root/$(dirname "$rel_path")"
 		cp -v "$file" "$repo_root/$rel_path" 2>/dev/null || true
