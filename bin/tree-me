@@ -12,7 +12,11 @@
 set -e
 
 # Worktree organization: ~/dev/worktrees/<repo>/<branch>
-WORKTREE_ROOT="${WORKTREE_ROOT:-$HOME/dev/worktrees}"
+DEFAULT_WORKTREE_ROOT="$HOME/dev/worktrees"
+WORKTREE_ROOT="${WORKTREE_ROOT:-$DEFAULT_WORKTREE_ROOT}"
+if [ ! -d "$WORKTREE_ROOT" ]; then
+    WORKTREE_ROOT="$DEFAULT_WORKTREE_ROOT"
+fi
 
 # Check if Graphite is initialized in this repo
 is_graphite_repo() {
