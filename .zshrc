@@ -50,6 +50,8 @@ source $DOTFILES_DIR/bin/conda-lazy.zsh
 export NVM_LAZY_LOAD=true
 source $DOTFILES_DIR/bin/.zsh-nvm.zsh
 
+source $DOTFILES_DIR/bin/yeet.zsh
+
 source $DOTFILES_DIR/aliases.zsh
 
 source $DOTFILES_DIR/keybinds.zsh
