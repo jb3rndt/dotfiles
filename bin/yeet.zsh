@@ -31,7 +31,7 @@ yeet() {
   confirm=${confirm:-y}
   if [[ "$confirm" =~ ^[Yy] ]]; then
     if git commit -m "$msg"; then
-      if git push; then
+      if gpf; then
         echo "Pushed."
         return 0
       else
