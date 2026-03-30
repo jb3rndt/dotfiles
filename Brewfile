@@ -24,6 +24,7 @@ cask 'whatsapp'
 cask 'telegram'
 cask 'obsidian'
 cask 'chatgpt'
+cask 'zen'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
