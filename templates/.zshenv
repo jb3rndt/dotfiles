@@ -1,4 +1,3 @@
-
 export GRAALVM_HOME="/Library/Java/JavaVirtualMachines/graalvm-jdk-21.0.3+7.1/Contents/Home"
 export GRAALVM23_HOME="/Library/Java/JavaVirtualMachines/graalvm-jdk-23.0.1+11.1/Contents/Home"
 export OPENLABS_HOME="/Library/Java/JavaVirtualMachines/labsjdk-ce-21.0.2-jvmci-23.1-b33/Contents/Home"
