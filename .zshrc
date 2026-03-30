@@ -20,9 +20,8 @@ fi
 
 [[ ! -f $DOTFILES_DIR/local.zshenv ]] || source $DOTFILES_DIR/local.zshenv
 
-PATH="$PATH:$HOME/.npm-global/bin/:/opt/homebrew/opt/libpq/bin:$HOME/Library/Python/3.11/bin"
+PATH="$PATH:$HOME/.npm-global/bin/:/opt/homebrew/opt/libpq/bin"
 PATH="$PATH:$HOME/.local/bin"
-PATH="$PATH:/opt/homebrew/bin"
 PATH="$PATH:$HOME/Development/flutter/bin"
 PATH="$PATH:$HOME/.pub-cache/bin"
 PATH="$PATH:$HOME/Development/mx"
@@ -30,14 +29,7 @@ PATH="$PATH:$HOME/Development/mx"
 [[ ! -n "$JAVA_HOME" ]] || PATH="$PATH:$JAVA_HOME/bin"
 [[ ! -n "$M2_HOME" ]] || PATH="$PATH:$M2_HOME/bin"
 
-# Pyenv
-if [[ -d $PYENV_ROOT/bin ]]; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
-
 # Bat (better cat) (https://github.com/sharkdp/bat)
-
 export BAT_THEME="TwoDark"
 
 # >>> conda initialize >>>
@@ -54,6 +46,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export PATH
 
 source $DOTFILES_DIR/aliases.zsh
 
