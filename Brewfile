@@ -6,6 +6,7 @@ brew 'pyenv'
 brew 'git-lfs'
 brew 'tmux'
 brew 'docker'
+brew 'tmuxp'
 
 # Apps
 cask 'unnaturalscrollwheels'
