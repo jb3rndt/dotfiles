@@ -18,30 +18,23 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $DOTFILES_DIR/.p10k.zsh ]] || source $DOTFILES_DIR/.p10k.zsh
 
+[[ ! -f $DOTFILES_DIR/local.zshenv ]] || source $DOTFILES_DIR/local.zshenv
+
 PATH="$PATH:$HOME/.npm-global/bin/:/opt/homebrew/opt/libpq/bin:$HOME/Library/Python/3.11/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:/opt/homebrew/bin"
 PATH="$PATH:$HOME/Development/flutter/bin"
 PATH="$PATH:$HOME/.pub-cache/bin"
-
-export GRAALVM_HOME="/Library/Java/JavaVirtualMachines/graalvm-jdk-21.0.3+7.1/Contents/Home"
-export GRAALVM23_HOME="/Library/Java/JavaVirtualMachines/graalvm-jdk-23.0.1+11.1/Contents/Home"
-export OPENLABS_HOME="/Library/Java/JavaVirtualMachines/labsjdk-ce-21.0.2-jvmci-23.1-b33/Contents/Home"
-export JDK21_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
-
-export JAVA_HOME=$GRAALVM23_HOME
-
-PATH="$PATH:$JAVA_HOME/bin"
-PATH="$PATH:/opt/apache-maven-3.9.6/bin"
-
 PATH="$PATH:$HOME/Development/mx"
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+[[ ! -n "$JAVA_HOME" ]] || PATH="$PATH:$JAVA_HOME/bin"
+[[ ! -n "$M2_HOME" ]] || PATH="$PATH:$M2_HOME/bin"
 
-export GRAALPY_HOME="$HOME/Documents/SWD24/venv"
+# Pyenv
+if [[ -d $PYENV_ROOT/bin ]]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
 
 # Bat (better cat) (https://github.com/sharkdp/bat)
 

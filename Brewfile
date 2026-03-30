@@ -1,6 +1,7 @@
 brew 'bat'
 brew 'ffmpeg'
 brew 'eza'
+brew 'maven'
 
 # Apps
 cask 'unnaturalscrollwheels'

@@ -16,6 +16,12 @@ printf "\e[32m✔ Oh my zsh installed\e[0m\n"
 rm -rf $HOME/.zshrc
 ln -sw $DOTFILES_DIR/.zshrc $HOME/.zshrc
 
+if [ ! -f "$DOTFILES_DIR/.zshenv" ]; then
+  cp "$DOTFILES_DIR/templates/.zshenv" "$DOTFILES_DIR/local.zshenv"
+fi
+
+printf "\e[32m✔ .zshenv copied from template\e[0m\n"
+
 printf "\e[32m✔ .zshrc linked\e[0m\n"
 
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
