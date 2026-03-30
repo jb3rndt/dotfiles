@@ -19,6 +19,10 @@ ln -sw $DOTFILES_DIR/.zshrc $HOME/.zshrc
 rm -rf $HOME/.tmux.conf
 ln -sw $DOTFILES_DIR/.tmux.conf $HOME/.tmux.conf
 
+rm -rf $HOME/.config/karabiner
+mkdir -p $HOME/.config
+ln -sw $DOTFILES_DIR/configs/karabiner $HOME/.config/
+
 if [ ! -f "$DOTFILES_DIR/local.zshenv" ]; then
   cp "$DOTFILES_DIR/templates/.zshenv" "$DOTFILES_DIR/local.zshenv"
 fi
