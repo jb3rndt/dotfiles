@@ -40,27 +40,18 @@ source <(tree-me shellenv)
 # Bat (better cat) (https://github.com/sharkdp/bat)
 export BAT_THEME="TwoDark"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jberndt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/jberndt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jberndt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/jberndt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# Lazy load conda (https://www.reddit.com/r/zsh/comments/qmd25q/lazy_loading_conda/)
+source $DOTFILES_DIR/bin/conda-lazy.zsh
 
-export PATH
+# Speed up nvm by lazy loading it: https://varun.ch/posts/slow-nvm/
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_LAZY_LOAD=true
+source $DOTFILES_DIR/bin/.zsh-nvm.zsh
 
 source $DOTFILES_DIR/aliases.zsh
 
 source $DOTFILES_DIR/keybinds.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH
