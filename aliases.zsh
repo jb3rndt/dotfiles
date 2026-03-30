@@ -11,6 +11,7 @@ alias cc="claude --allow-dangerously-skip-permissions"
 alias oc="opencode"
 alias dream="tree-me create"
 alias term="open -a iTerm ."
+alias lg="lazygit"
 
 # Generic yarn workspace command runner
 # Automatically finds the workspace name from package.json
