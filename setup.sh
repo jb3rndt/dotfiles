@@ -10,4 +10,5 @@ fi
 
 echo "Running run.sh..."
 
-cd "$HOME/dotfiles" && ./run.sh
+cd "$HOME/dotfiles"
+source ./run.sh
