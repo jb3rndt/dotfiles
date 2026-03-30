@@ -20,6 +20,7 @@ cask 'bitwarden'
 cask 'whatsapp'
 cask 'telegram'
 cask 'obsidian'
+cask 'chatgpt'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
