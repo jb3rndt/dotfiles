@@ -30,6 +30,7 @@ cask 'obsidian'
 cask 'chatgpt'
 cask 'zen'
 cask 'karabiner-elements'
+cask 'alt-tab'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
