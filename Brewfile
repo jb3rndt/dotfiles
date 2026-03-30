@@ -23,6 +23,7 @@ cask 'obsidian'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
+cask 'font-code-new-roman-nerd-font'
 
 # App Store
 mas 'Spark Desktop', id: 6445813049
