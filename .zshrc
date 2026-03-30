@@ -29,9 +29,13 @@ PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/Development/flutter/bin"
 PATH="$PATH:$HOME/.pub-cache/bin"
 PATH="$PATH:$HOME/Development/mx"
+PATH="$PATH:$DOTFILES_DIR/bin"
 
 [[ ! -n "$JAVA_HOME" ]] || PATH="$PATH:$JAVA_HOME/bin"
 [[ ! -n "$M2_HOME" ]] || PATH="$PATH:$M2_HOME/bin"
+
+# tree-me (git worktree wrapper) (https://haacked.com/archive/2025/11/21/tree-me)
+source <(tree-me shellenv)
 
 # Bat (better cat) (https://github.com/sharkdp/bat)
 export BAT_THEME="TwoDark"
