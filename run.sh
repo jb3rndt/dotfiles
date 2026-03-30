@@ -47,9 +47,13 @@ brew upgrade
 
 printf "\e[32m✔ Brewfile installed\e[0m\n"
 
-source ~/.zshrc
+source $HOME/.zshrc
+tmux source-file $HOME/.tmux.conf
+$HOME/.tmux/plugins/tpm/bin/install_plugins
+$HOME/.tmux/plugins/tpm/bin/clean_plugins
+$HOME/.tmux/plugins/tpm/bin/update_plugins all
 
-printf "\e[32m✔ Shell reloaded\e[0m\n"
+printf "\e[32m✔ Shell and tmux reloaded\e[0m\n"
 
 # Copy preferences files and back up existing ones
 BACKUP_DIR="$DOTFILES_DIR/backup_preferences/$(date +%Y%m%d%H%M%S)"
