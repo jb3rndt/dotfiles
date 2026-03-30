@@ -8,6 +8,7 @@ alias update-dotfiles="zsh $DOTFILES_DIR/update.sh"
 alias search="cat ~/.zsh_history | grep"
 alias y="yarn"
 alias cc="claude --allowed-tools=Edit"
+alias dream="tree-me create"
 
 # Generic yarn workspace command runner
 # Automatically finds the workspace name from package.json

@@ -34,7 +34,7 @@ PATH="$PATH:$DOTFILES_DIR/bin"
 [[ ! -n "$JAVA_HOME" ]] || PATH="$PATH:$JAVA_HOME/bin"
 [[ ! -n "$M2_HOME" ]] || PATH="$PATH:$M2_HOME/bin"
 
-# tree-me (git worktree wrapper) (https://haacked.com/archive/2025/11/21/tree-me)
+# tree-me (git worktree wrapper) (Shoutouts: https://haacked.com/archive/2025/11/21/tree-me)
 source <(tree-me shellenv)
 
 # Bat (better cat) (https://github.com/sharkdp/bat)
