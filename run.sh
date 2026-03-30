@@ -32,6 +32,8 @@ if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 fi
 
+git config --global include.path "$DOTFILES_DIR/config/.gitconfig"
+
 brew update
 brew bundle --file $DOTFILES_DIR/Brewfile
 brew upgrade
