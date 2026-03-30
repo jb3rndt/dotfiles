@@ -107,9 +107,12 @@ get_pr_number() {
     fi
 }
 
-repo=$(get_repo_name)
 command="$1"
 shift
+
+if [ "$command" != "shellenv" ]; then
+    repo=$(get_repo_name)
+fi
 
 case "$command" in
     shellenv)
