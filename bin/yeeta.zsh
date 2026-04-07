@@ -1,29 +1,28 @@
 #!/usr/bin/env zsh
 
-# Usage: yeet "commit message"
-msg="$1"
-if [ -z "$msg" ]; then
-  echo "Usage: yeet \"commit message\""
-  exit 2
-fi
-
+# Usage: yeeta
 if ! git rev-parse --git-dir >/dev/null 2>&1; then
   echo "Not a git repository (or no .git directory found)."
   exit 1
+fi
+
+if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
+  echo "No commits yet. Create an initial commit first."
+  exit 2
 fi
 
 git add -A
 
 staged=$(git diff --cached --name-only || true)
 if [ -z "$staged" ]; then
-  echo "No changes to commit."
+  echo "No changes to amend."
   exit 0
 fi
 
 echo "Changes:"
 git --no-pager diff --stat --cached
 echo
-printf "Commit with message '$msg' and push? [Enter/n] "
+printf "Amend last commit and push? [Enter/n] "
 IFS= read -r confirm
 echo
 confirm=${confirm:-y}
@@ -32,8 +31,8 @@ if ! [[ "$confirm" =~ ^[Yy] ]]; then
   exit 5
 fi
 
-if ! git commit -m "$msg"; then
-  echo "Commit failed." >&2
+if ! git commit --amend --no-edit; then
+  echo "Amend failed." >&2
   exit 4
 fi
 
