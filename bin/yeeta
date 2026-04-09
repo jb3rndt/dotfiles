@@ -36,7 +36,7 @@ if ! git commit --amend --no-edit; then
   exit 4
 fi
 
-if ! gpf; then
+if ! git push --force-with-lease; then
   echo "Push failed." >&2
   exit 3
 fi
