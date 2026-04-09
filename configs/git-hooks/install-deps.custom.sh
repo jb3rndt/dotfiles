@@ -5,9 +5,10 @@ cd "$repo_root"
 
 BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
 
-# Do not run install if we're on a detached head (e.g. when rebasing)
-if [[ $BRANCH_NAME == "(no branch)" ]]; then
-	echo "🚫 Detached head detected, skipping install"
+# Do not run install if a rebase is in progress
+git_dir="$(git rev-parse --git-dir)"
+if [[ -d "$git_dir/rebase-merge" || -d "$git_dir/rebase-apply" ]]; then
+	echo "🚫 Rebase in progress, skipping install"
 	exit 0
 fi
 
