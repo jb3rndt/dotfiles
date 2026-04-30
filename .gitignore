@@ -1,4 +1,4 @@
 backup_preferences
-local.*
+local
 .DS_Store
 automatic_backups

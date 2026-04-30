@@ -20,7 +20,7 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $DOTFILES_DIR/.p10k.zsh ]] || source $DOTFILES_DIR/.p10k.zsh
 
-[[ ! -f $DOTFILES_DIR/local.zshenv ]] || source $DOTFILES_DIR/local.zshenv
+[[ ! -f $DOTFILES_DIR/local/.zshenv ]] || source $DOTFILES_DIR/local/.zshenv
 
 PATH="$PATH:/opt/homebrew/bin"
 PATH="$PATH:/opt/homebrew/opt/libpq/bin"

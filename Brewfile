@@ -12,7 +12,6 @@ brew 'lazygit'
 # Apps
 cask 'unnaturalscrollwheels'
 cask 'spotify'
-cask 'discord'
 cask 'docker-desktop'
 cask 'figma'
 cask 'firefox'
@@ -20,9 +19,7 @@ cask 'google-chrome'
 cask 'visual-studio-code'
 cask 'iterm2'
 cask 'postman'
-cask 'notion'
 cask 'raycast'
-cask 'gimp'
 cask 'bitwarden'
 cask 'whatsapp'
 cask 'telegram'
@@ -39,3 +36,6 @@ cask 'font-code-new-roman-nerd-font'
 # App Store
 mas 'Spark Desktop', id: 6445813049
 mas 'Slack', id: 803453959
+
+local_brewfile = File.join(File.dirname(__FILE__), 'local/Brewfile')
+instance_eval(File.read(local_brewfile), local_brewfile) if File.exist?(local_brewfile)

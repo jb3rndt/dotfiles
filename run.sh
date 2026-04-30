@@ -23,8 +23,8 @@ rm -rf $HOME/.config/karabiner
 mkdir -p $HOME/.config
 ln -sw $DOTFILES_DIR/configs/karabiner $HOME/.config/
 
-if [ ! -f "$DOTFILES_DIR/local.zshenv" ]; then
-  cp "$DOTFILES_DIR/templates/.zshenv" "$DOTFILES_DIR/local.zshenv"
+if [ ! -f "$DOTFILES_DIR/local/.zshenv" ]; then
+  cp "$DOTFILES_DIR/templates/.zshenv" "$DOTFILES_DIR/local/.zshenv"
 fi
 
 printf "\e[32m✔ .zshenv copied from template\e[0m\n"
