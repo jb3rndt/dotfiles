@@ -12,29 +12,15 @@ alias oc="opencode"
 alias dream="tree-me create"
 alias term="open -a iTerm ."
 alias lg="lazygit"
+alias ys="yarn run start"
+alias yd="yarn run dev"
 
 # Generic yarn workspace command runner
 # Automatically finds the workspace name from package.json
-_yw() {
-    local cmd=$1
-    local pkg=""
-    local args=()
-
-    # Check if second argument is a package name or a flag
-    if [[ -n "$2" && ! "$2" =~ ^- ]]; then
-        # Second argument doesn't start with '-', treat it as package name
-        pkg=$2
-        args=("${(@)argv[3,-1]}")
-    else
-        # Second argument starts with '-' or doesn't exist, treat all remaining args as flags
-        args=("${(@)argv[2,-1]}")
-    fi
-
-    if [[ -z "$pkg" ]]; then
-        # If no package specified, run in current directory
-        yarn run "$cmd" "${args[@]}"
-        return $?
-    fi
+yw() {
+    local pkg=$1
+    local cmd=$2
+    local args=${@:3}
 
     # Find the package.json for the given package
     local pkg_json=""
@@ -58,10 +44,10 @@ _yw() {
         return 1
     fi
 
-    yarn workspace "$workspace" "$cmd" "${args[@]}"
+    yarn workspace $workspace run $cmd $args
 }
 
 # Aliases for common commands
-yt() { _yw test "$@" }
-yb() { _yw build "$@" }
-yl() { _yw lint "$@" }
+yt() { yw "$1" test "${@:2}" }
+yb() { yw "$1" build "${@:2}" }
+yl() { yw "$1" lint "${@:2}" }
