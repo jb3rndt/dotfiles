@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 # Detect and run package manager install
 repo_root="$(git rev-parse --show-toplevel)"
 cd "$repo_root"

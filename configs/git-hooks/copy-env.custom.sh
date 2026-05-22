@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 # Post-checkout git hook to copy environment files and run package manager install
 # https://mskelton.dev/bytes/using-git-hooks-when-creating-worktrees
 
