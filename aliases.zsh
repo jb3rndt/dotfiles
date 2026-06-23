@@ -14,6 +14,8 @@ alias term="open -a iTerm ."
 alias lg="lazygit"
 alias ys="yarn run start"
 alias yd="yarn run dev"
+alias ytf="yt frontend -u"
+alias ytb="yt backend"
 
 # Generic yarn workspace command runner
 # Automatically finds the workspace name from package.json
