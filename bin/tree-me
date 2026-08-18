@@ -11,8 +11,8 @@
 
 set -e
 
-# Worktree organization: ~/dev/worktrees/<repo>/<branch>
-DEFAULT_WORKTREE_ROOT="$HOME/dev/worktrees"
+# Worktree organization: ~/Code/Worktrees/<repo>/<branch>
+DEFAULT_WORKTREE_ROOT="$HOME/Code/Worktrees"
 WORKTREE_ROOT="${WORKTREE_ROOT:-$DEFAULT_WORKTREE_ROOT}"
 if [ ! -d "$WORKTREE_ROOT" ]; then
     WORKTREE_ROOT="$DEFAULT_WORKTREE_ROOT"

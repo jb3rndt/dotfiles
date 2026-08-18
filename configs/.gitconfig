@@ -4,5 +4,5 @@
 [core]
     ignorecase = false
     # Can't use $DOTFILES_DIR because git-lfs will not expand it
-    hooksPath = ~/dotfiles/configs/git-hooks
+    hooksPath = ~/Code/dotfiles/configs/git-hooks
 

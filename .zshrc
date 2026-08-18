@@ -1,4 +1,4 @@
-export DOTFILES_DIR="$HOME/dotfiles"
+export DOTFILES_DIR="$HOME/Code/dotfiles"
 
 export ZSH="$HOME/.oh-my-zsh"
 
