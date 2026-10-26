@@ -5,7 +5,9 @@
 # https://github.com/webpro/dotfiles
 echo "Setting up/updating your Mac..."
 
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="$HOME/Code/dotfiles"
+LAUNCH_AGENTS_DIR="$HOME/Library/LaunchAgents"
+USER_PATH_AGENT="com.jberndt.user-path.plist"
 
 if [ ! -d "$ZSH" ]; then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
@@ -22,6 +24,13 @@ ln -sw $DOTFILES_DIR/.tmux.conf $HOME/.tmux.conf
 rm -rf $HOME/.config/karabiner
 mkdir -p $HOME/.config
 ln -sw $DOTFILES_DIR/configs/karabiner $HOME/.config/
+
+mkdir -p "$LAUNCH_AGENTS_DIR"
+ln -sfn "$DOTFILES_DIR/configs/launchagents/$USER_PATH_AGENT" "$LAUNCH_AGENTS_DIR/$USER_PATH_AGENT"
+launchctl bootout "gui/$(id -u)/com.jberndt.user-path" 2>/dev/null || true
+launchctl bootstrap "gui/$(id -u)" "$LAUNCH_AGENTS_DIR/$USER_PATH_AGENT"
+
+printf "\e[32m✔ GUI PATH configured\e[0m\n"
 
 if [ ! -f "$DOTFILES_DIR/local/.zshenv" ]; then
   cp "$DOTFILES_DIR/templates/.zshenv" "$DOTFILES_DIR/local/.zshenv"
