@@ -21,8 +21,6 @@ cask 'iterm2'
 cask 'postman'
 cask 'raycast'
 cask 'bitwarden'
-cask 'whatsapp'
-cask 'telegram'
 cask 'obsidian'
 cask 'chatgpt'
 cask 'zen'
@@ -32,10 +30,6 @@ cask 'alt-tab'
 # Fonts
 cask 'font-meslo-lg-nerd-font'
 cask 'font-code-new-roman-nerd-font'
-
-# App Store
-mas 'Spark Desktop', id: 6445813049
-mas 'Slack', id: 803453959
 
 local_brewfile = File.join(File.dirname(__FILE__), 'local/Brewfile')
 instance_eval(File.read(local_brewfile), local_brewfile) if File.exist?(local_brewfile)
