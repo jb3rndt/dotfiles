@@ -54,3 +54,16 @@ yw() {
 yt() { yw "$1" test "${@:2}" }
 yb() { yw "$1" build "${@:2}" }
 yl() { yw "$1" lint "${@:2}" }
+
+# Fixup commit for the n-th last commit (fix = fix 1 = HEAD, fix 2 = HEAD~1, ...)
+fix() {
+    local n=${1:-1}
+    git commit --fixup "HEAD~$((n - 1))" "${@:2}"
+}
+
+# Autosquash all fixup! commits since the current branch forked off the default branch
+autosquash() {
+    local base_branch=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null || echo "main")
+    local fork_point=$(git merge-base HEAD "$base_branch") || return 1
+    GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash --autostash "$fork_point"
+}
