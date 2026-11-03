@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 
+yarn cache clean
 rm -rf "$(brew --cache)"
 rm -rf ~/.npm/_cacache
-yarn cache clean
+rm -rf ~/.npm/_npx
+rm -rf ~/.yarn/berry/cache
+rm -rf ~/.gradle/caches
 rm -rf ~/Library/Caches/com.spotify.client/Data
