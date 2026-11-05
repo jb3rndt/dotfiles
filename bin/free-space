@@ -1,5 +1,29 @@
 #!/usr/bin/env zsh
 
+# Apps whose caches/data get deleted below must not be running.
+# Format: "Display name|regex matched against the full process command line"
+apps=(
+  "Google Chrome|/Contents/MacOS/Google Chrome( |$)"
+  "Android Studio|/Contents/MacOS/studio( |$)"
+  "JetBrains IDE|/Contents/MacOS/(idea|webstorm|pycharm|phpstorm|goland|rider|clion|rubymine|datagrip|rustrover|fleet)( |$)"
+  "JetBrains Toolbox|/Contents/MacOS/jetbrains-toolbox( |$)"
+  "Xcode|/Contents/MacOS/Xcode( |$)"
+  "Device Hub|/Contents/MacOS/(DeviceHub|DevicesTrampoline)( |$)"
+  "Spotify|/Contents/MacOS/Spotify( |$)"
+  "Gradle daemon (run: gradle --stop)|GradleDaemon"
+)
+
+running=()
+for entry in $apps; do
+  pgrep -qf "${entry#*|}" && running+=("${entry%%|*}")
+done
+
+if (( ${#running} )); then
+  echo "Please quit these first:" >&2
+  printf '  - %s\n' $running >&2
+  exit 1
+fi
+
 yarn cache clean
 rm -rf "$(brew --cache)"
 rm -rf ~/.npm/_cacache
@@ -7,3 +31,18 @@ rm -rf ~/.npm/_npx
 rm -rf ~/.yarn/berry/cache
 rm -rf ~/.gradle/caches
 rm -rf ~/Library/Caches/com.spotify.client/Data
+
+# App caches (rebuilt on next launch)
+rm -rf ~/Library/Caches/Google
+rm -rf ~/Library/Caches/JetBrains
+rm -rf ~/Library/Caches/com.apple.dt.Xcode
+
+# Xcode build output and device symbols (re-copied when a device is connected)
+rm -rf ~/Library/Developer/Xcode/DerivedData
+rm -rf ~/Library/Developer/Xcode/iOS\ DeviceSupport/*
+find ~/Code -type d -name node_modules -prune -o -type d -name DerivedData -prune -print0 | xargs -0 rm -rf
+
+# Simulators and runtimes, via simctl (runtimes live in SIP-protected storage)
+xcrun simctl delete unavailable
+xcrun simctl runtime delete --unusable
+xcrun simctl runtime delete --outdated
